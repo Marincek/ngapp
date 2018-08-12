@@ -1,0 +1,25 @@
+
+<div class="form-group">
+  <label for="usr">Server name:</label>
+  <input type="text" class="form-control" id="usr" [(ngModel)]="serverName">
+</div>
+
+<p *ngIf="serverCreated">Server was created , server name is {{serverName}}</p>
+
+
+<button type="button" class="btn btn-primary"
+        [disabled]="!allowNewServer"
+        (click)="onCreateServer()">Add Server</button>
+
+
+<app-server *ngFor="let server of servers"></app-server>
+
+
+
+<div class="form-group">
+  <label for="pwd">Name:</label>
+  <input type="text" class="form-control" id="pwd" [(ngModel)]="username" (ngModelChange)="onNameInputEvent($event)">
+</div>
+<button type="button" class="btn btn-primary"
+        [disabled]="!resetButtonEnabled"
+        (click)="onResetUserInput()">Reset name</button>
